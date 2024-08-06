@@ -55,10 +55,9 @@ export function calculateScrabbleScore(input) {
         z: 10,
       };
       
-      const scrabbleScore = input =>
-        // input
-        //   .split('')
-          input.map(letter => letterScores[letter])
-          return input
-        //   .reduce((a, b) => a + b);
-}
+      
+      return input
+      .toLowerCase()
+      .split('')
+      .reduce((combined, letter) => combined + (letterScores[letter] || 0) , 0);
+    }
