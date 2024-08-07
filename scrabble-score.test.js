@@ -36,3 +36,8 @@ const testCases = [
    }
  );
 
+ test('test for multiple letters', () => {
+   expect(calculateScrabbleScore('fabulous')).toBe(13);
+   expect(calculateScrabbleScore('nevertheless')).toBe(18);
+   expect(calculateScrabbleScore('flavour')).toBe(13);
+    })
