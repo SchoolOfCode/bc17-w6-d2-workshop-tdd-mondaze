@@ -42,6 +42,6 @@ const testCases = [
    expect(calculateScrabbleScore('flavour')).toBe(13);
     })
 
-    test('test for multiple letters', () => {
-      expect(() => calculateScrabbleScore('%')).toThrow('Invalid input');
+    test('error test', () => {
+      expect(() => calculateScrabbleScore('')).toThrow('Invalid input')
     })
