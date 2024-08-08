@@ -54,10 +54,17 @@ export function calculateScrabbleScore(input) {
         q: 10,
         z: 10,
       };
-      
+      if(!input) {
+        throw new Error('Invalid input')
+      }
       
       return input
+      //changes everything to lowercase 
       .toLowerCase()
+      //splits the word into letters
       .split('')
-      .reduce((combined, letter) => combined + (letterScores[letter] || 0) , 0);
+      //combines a basket and the running total of whatever letter we're iterating over, starting at 0
+      .reduce((combined, letter) => combined + (letterScores[letter]) , 0);
     }
+
+    
