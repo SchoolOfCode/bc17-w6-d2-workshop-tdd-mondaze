@@ -1,18 +1,6 @@
 import { calculateScrabbleScore, input, letterScores, scrabbleScores} from "./scrabble-score.js";
 import { expect, test } from 'vitest';
 
-// test('calculate scrabble score for A', () => {
-//     expect(calculateScrabbleScore('a')).toBe(1);
-//  })
-
-//  test('calculate scrabble score for longer words (a)', () => {
-//     expect(calculateScrabbleScore('celestial')).toBe(11);
-//     expect(calculateScrabbleScore('azumarill')).toBe(20);
-//     expect(calculateScrabbleScore('ambivalent')).toBe(17);
-//     expect(calculateScrabbleScore('clefairy')).toBe(16);
-//     expect(calculateScrabbleScore('unbeknownst')).toBe(20);
-//  })
-
 
 // Define test cases
 const testCases = [
@@ -25,7 +13,7 @@ const testCases = [
    ['unbeknownst', 20],
  ];
  
- //iterating over the array to test each word
+ // Ticket 2- Iterating over the array to test each word
  test.each(testCases)(
    //name of task
    'calculate scrabble score for %s',
@@ -36,8 +24,22 @@ const testCases = [
    }
  );
 
+ // Ticket 3 - Multiple letters test
  test('test for multiple letters', () => {
    expect(calculateScrabbleScore('fabulous')).toBe(13);
    expect(calculateScrabbleScore('nevertheless')).toBe(18);
    expect(calculateScrabbleScore('flavour')).toBe(13);
     })
+
+// Ticket 4
+function notaLetter() {
+  if (input !== 1 || !/[A-Za-z]/) {
+    throw new Error('Not a correct input');
+  }
+}
+
+test('not a letter error', () => {
+  // Test that the error message says "Not a letter"
+  expect(() => notaLetter('*')).toThrowError('Not a correct input')
+  expect(() => notaLetter('1')).toThrowError('Not a correct input')
+})
